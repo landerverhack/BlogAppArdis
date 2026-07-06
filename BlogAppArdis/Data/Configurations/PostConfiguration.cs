@@ -16,9 +16,6 @@ public class PostConfiguration : IEntityTypeConfiguration<Post>
         builder.Property(p => p.Content)
             .IsRequired();
 
-        builder.Property(p => p.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
-
         builder.HasOne(p => p.Blog)
             .WithMany(b => b.Posts)
             .HasForeignKey(p => p.BlogId)

@@ -9,14 +9,11 @@ public class BlogConfiguration : IEntityTypeConfiguration<Blog>
     {
         builder.HasKey(b => b.Id);
 
-        builder.Property(b => b.Title)
+        builder.Property(b => b.Name)
             .IsRequired()
             .HasMaxLength(200);
 
-        builder.Property(b => b.Content)
-            .IsRequired();
-
-        builder.Property(b => b.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+        builder.Property(b => b.Description)
+            .HasMaxLength(1000);
     }
 }
