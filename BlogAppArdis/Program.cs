@@ -1,5 +1,6 @@
 using BlogAppArdis.Components;
 using BlogAppArdis.Data;
+using BlogAppArdis.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,5 +35,7 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+
+app.MapPostEndpoints();
 
 app.Run();

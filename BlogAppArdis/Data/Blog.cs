@@ -10,4 +10,7 @@ public class Blog
     
     // Navigation property
     public ICollection<Post> Posts { get; set; } = new List<Post>();
+
+    // Navigation property
+    public ICollection<Author> Authors { get; set; } = new List<Author>();
 }
